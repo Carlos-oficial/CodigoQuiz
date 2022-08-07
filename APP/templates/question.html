@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="static/dist/main.css" />
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+    <img src={{image_link}}>
+    {{question|safe}}
+    <ul>
+        {% for answer in answers %}
+        <div class="answer {{answer[0]}}">{{ answer[1]}}</div>
+        {% endfor %}
+    </ul>
+</body>
+
+<script>
+    var id = '{{id}}'
+    var bcrypt = function(e) {
+        var t = String(e).replace(/=+$/, "");
+        var n =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+        for (
+            var r = 0, i, s, o = 0, u = "";
+            (s = t.charAt(o++)); ~s && ((i = r % 4 ? i * 64 + s : s), r++ % 4) ?
+            (u += String.fromCharCode(255 & (i >> ((-2 * r) & 6)))) :
+            0
+        ) {
+            s = n.indexOf(s);
+        }
+        return u;
+    };
+    var bc = function(e, t) {
+        n = bcrypt(e),
+            r = n - t;
+        return r;
+    };
+    var lazyLoadImage = function() {
+        e = bc('{{enc_string}}', id);
+        return String.fromCharCode(e);
+    };
+    var e = lazyLoadImage();
+    var objects = document.getElementsByClassName("answer");
+    for (var obj of objects) {
+        console.log(obj);
+        if (obj.classList.contains(e)) {
+            obj.style.color = "blue";
+        }
+    }
+    for (var obj of objects) {
+        console.log(obj);
+    }
+</script>
+
+</html>

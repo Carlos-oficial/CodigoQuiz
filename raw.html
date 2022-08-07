@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="ng-app:BC" data-ng-app="BC" id="ng-app" lang="pt" ng-app="BC" xmlns:ng="http://angularjs.org">
+
+<head>
+    <title>Esta situação pode ser particularmente perigosa à circulação. (1234) | Bom Condutor</title>
+    <link href="/assets/images/layout/favicon.png" rel="icon" type="image/png" />
+    <link href="https://plus.google.com/110934732148682961859" rel="publisher" />
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="testes de código grátis, escolas de condução" name="keywords" />
+    <meta content="#2EA860" name="theme-color" />
+    <meta content="pt_PT" property="og:locale" />
+    <meta content="Bom Condutor" property="og:site_name" />
+    <meta content="100006847961156" property="fb:admins" />
+    <meta content="YlM85GVE1yMvAZlhjqVXlO-MFJt0bGp0O0taYkDbD3I" name="google-site-verification" />
+    <meta content="FK5Q-PyBGvh06bYzpUy1U-W0eBU5-Xd6O-pht4r2VbU" name="google-site-verification" />
+    <meta content="VByNCRgGm1KE7qv6s2MD5LzChLI" name="alexaVerifyID" />
+    <meta content="a279fcdf3da71e933f3f" name="wot-verification" />
+    <meta content="Esta situação pode ser particularmente perigosa à circulação. (1234) | Bom Condutor" property="og:title" />
+    <meta content="Questão IMT: Esta situação pode ser particularmente perigosa à circulação. (1234)" name="description" />
+    <meta content="Questão IMT: Esta situação pode ser particularmente perigosa à circulação. (1234)" property="og:description" />
+    <meta content="https://www.bomcondutor.pt//assets/images/questions/1234.jpg" property="og:image" />
+    <meta content="index, follow" name="robots" />
+    <link href="//fonts.googleapis.com/css?family=Varela+Round|Open+Sans:400italic,600italic,700italic,700,600,400" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bc37b504eab52542c4c2a4721dbee87c49.min.css" rel="stylesheet" />
+    <link href="/assets/images/brand/icon-192.png" rel="icon" sizes="192x192" type="image/png" />
+
+    <script charset="UTF-8" src="/assets/js/BCapp37b504eab52542c4c2a4721dbee87c49.min.js"></script>
+    <script>
+        angular.module('BC').constant('basePath', "https://www.bomcondutor.pt/");
+        angular.module('BC').constant('flashMessage', false);
+        angular.module('BC').constant('flashModal', false);
+        angular.module('BC').constant('userStats', null);
+        angular.module('BC').constant('registeredUser', false);
+        angular.module('BC').constant('deviceType', "desktop");
+    </script>
+</head>
+
+<body>
+    <script>
+        Pace.start();
+    </script>
+    <div class="bc-cookie-disclaimer">Ao continuar a utilizar o site estará a consentir o uso de cookies. Saiba mais sobre a nossa <a class="privacy-link" href="/privacidade" target="_self">política de privacidade</a>. <button>Fechar <i class="fa fa-times"></i></button></div>
+    <div class="help-overlay"></div>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-46401449-1', 'bomcondutor.pt');
+        ga('require', 'displayfeatures');
+        ga('require', 'linkid', 'linkid.js');
+        ga('send', 'pageview');
+    </script>
+    <div id="fb-root"></div>
+    <script>
+        BC.service('FB', ['$window', function($window) {
+            return $window.FB;
+        }]);
+        window.fbAsyncInit = function() {
+            // init the FB JS SDK
+            FB.init({
+                appId: '345919818887007', // App ID from the app dashboard
+                status: true, // Check Facebook Login status
+                xfbml: true // Look for social plugins on the page
+            });
+        };
+
+        // Load the SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/pt_PT/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="bc-flash-message flash-modal" ng-controller="FlashModalDisplayController"></div>
+    <header class="bc-header guest">
+        <div class="search-box">
+            <form action="/procurar" class="search-form" id="cse-search-box" method="get">
+                <div>
+                    <input autocomplete="off" autosave="bc_search_box" class="field" name="q" placeholder="Procurar..." type="search" />
+                </div>
+            </form>
+        </div>
+        <div class="ticker" draggable="false">
+            <ul class="info-container">
+                <li class="info" title="Crie uma conta para ter acesso às suas estatísticas em qualquer equipamento.">
+                    <a class="just-the-tip" href="/conta/criar" target="_self">
+                        <span class="title">Conta</span>
+                        <span class="text">Crie uma conta para ter acesso às suas estatísticas em qualquer equipamento.</span>
+                    </a>
+                </li>
+                <li class="info" title="As questões que usamos estão atualizadas e são as mesmas do exame oficial.">
+                    <a class="just-the-tip" href="/questoes" target="_self">
+                        <span class="title">Questões</span>
+                        <span class="text">As questões que usamos estão atualizadas e são as mesmas do exame oficial.</span>
+                    </a>
+                </li>
+                <li class="info" title="Veja os testemunhos dos nossos utilizadores e deixe o seu!">
+                    <a class="just-the-tip" href="/testemunhos" target="_self">
+                        <span class="title">Testemunhos</span>
+                        <span class="text">Veja os testemunhos dos nossos utilizadores e deixe o seu!</span>
+                    </a>
+                </li>
+                <li class="info" title="Pode guardar uma questão colocando-a como favorita.">
+                    <a class="just-the-tip" href="/questoes" target="_self">
+                        <span class="title">Questões</span>
+                        <span class="text">Pode guardar uma questão colocando-a como favorita.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte os comentários da questão quando tem dúvidas.">
+                    <a class="just-the-tip" href="/questoes" target="_self">
+                        <span class="title">Questões</span>
+                        <span class="text">Consulte os comentários da questão quando tem dúvidas.</span>
+                    </a>
+                </li>
+                <li class="info" title='O teste "Difícil" apresenta-lhe as questões mais falhadas na plataforma.'>
+                    <a class="just-the-tip" href="/teste" target="_self">
+                        <span class="title">Testes</span>
+                        <span class="text">O teste "Difícil" apresenta-lhe as questões mais falhadas na plataforma.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte as suas estatísticas no seu perfil.">
+                    <a class="just-the-tip" href="/perfil" target="_self">
+                        <span class="title">Perfil</span>
+                        <span class="text">Consulte as suas estatísticas no seu perfil.</span>
+                    </a>
+                </li>
+                <li class="info" title="Veja o nível de dificuldade do teste quando o termina.">
+                    <a class="just-the-tip" href="/teste" target="_self">
+                        <span class="title">Testes</span>
+                        <span class="text">Veja o nível de dificuldade do teste quando o termina.</span>
+                    </a>
+                </li>
+                <li class="info" title="Tem um histórico dos seus testes no seu perfil.">
+                    <a class="just-the-tip" href="/perfil" target="_self">
+                        <span class="title">Perfil</span>
+                        <span class="text">Tem um histórico dos seus testes no seu perfil.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte aqui todas as questões que usamos na plataforma.">
+                    <a class="just-the-tip" href="/questoes" target="_self">
+                        <span class="title">Questões</span>
+                        <span class="text">Consulte aqui todas as questões que usamos na plataforma.</span>
+                    </a>
+                </li>
+                <li class="info" title="Deve fazer o teste que recomendamos para obter os melhores resultados.">
+                    <a class="just-the-tip" href="/teste" target="_self">
+                        <span class="title">Testes</span>
+                        <span class="text">Deve fazer o teste que recomendamos para obter os melhores resultados.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte as explicações das questões para esclarecimentos adicionais.">
+                    <a class="just-the-tip" href="/questoes" target="_self">
+                        <span class="title">Questões</span>
+                        <span class="text">Consulte as explicações das questões para esclarecimentos adicionais.</span>
+                    </a>
+                </li>
+                <li class="info" title="O Índice Bom Condutor dá-lhe uma ideia da sua preparação para o exame.">
+                    <a class="just-the-tip" href="/perfil" target="_self">
+                        <span class="title">Perfil</span>
+                        <span class="text">O Índice Bom Condutor dá-lhe uma ideia da sua preparação para o exame.</span>
+                    </a>
+                </li>
+                <li class="info" title="Veja os temas onde tem mais dificuldades no seu perfil.">
+                    <a class="just-the-tip" href="/perfil" target="_self">
+                        <span class="title">Perfil</span>
+                        <span class="text">Veja os temas onde tem mais dificuldades no seu perfil.</span>
+                    </a>
+                </li>
+                <li class="info" title='O teste "Novas" apresenta-lhe questões a que ainda não respondeu.'>
+                    <a class="just-the-tip" href="/teste" target="_self">
+                        <span class="title">Testes</span>
+                        <span class="text">O teste "Novas" apresenta-lhe questões a que ainda não respondeu.</span>
+                    </a>
+                </li>
+                <li class="info" title="Crie uma conta para poder partilhar o seu perfil com os seus amigos.">
+                    <a class="just-the-tip" href="/conta/criar" target="_self">
+                        <span class="title">Conta</span>
+                        <span class="text">Crie uma conta para poder partilhar o seu perfil com os seus amigos.</span>
+                    </a>
+                </li>
+                <li class="info" title="Veja as questões que errou no seu perfil.">
+                    <a class="just-the-tip" href="/perfil" target="_self">
+                        <span class="title">Perfil</span>
+                        <span class="text">Veja as questões que errou no seu perfil.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte a ajuda se tiver dúvidas relacionadas com a plataforma.">
+                    <a class="just-the-tip" href="/ajuda" target="_self">
+                        <span class="title">Ajuda</span>
+                        <span class="text">Consulte a ajuda se tiver dúvidas relacionadas com a plataforma.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte o código da estrada na nossa biblioteca.">
+                    <a class="just-the-tip" href="/biblioteca/codigo-estrada" target="_self">
+                        <span class="title">Biblioteca</span>
+                        <span class="text">Consulte o código da estrada na nossa biblioteca.</span>
+                    </a>
+                </li>
+                <li class="info" title="Use os atalhos de teclado para responder aos testes mais rapidamente.">
+                    <a class="just-the-tip" href="/ajuda#atalhos" target="_self">
+                        <span class="title">Ajuda</span>
+                        <span class="text">Use os atalhos de teclado para responder aos testes mais rapidamente.</span>
+                    </a>
+                </li>
+                <li class="info" title="Consulte a biblioteca para tirar dúvidas e ver resumos do código.">
+                    <a class="just-the-tip" href="/biblioteca" target="_self">
+                        <span class="title">Biblioteca</span>
+                        <span class="text">Consulte a biblioteca para tirar dúvidas e ver resumos do código.</span>
+                    </a>
+                </li>
+                <li class="info" title="Crie uma conta para não perder as suas estatísticas.">
+                    <a class="just-the-tip" href="/conta/criar" target="_self">
+                        <span class="title">Conta</span>
+                        <span class="text">Crie uma conta para não perder as suas estatísticas.</span>
+                    </a>
+                </li>
+                <li class="info" title="Saiba no seu perfil se já está preparado para ir a exame.">
+                    <a class="just-the-tip" href="/perfil" target="_self">
+                        <span class="title">Perfil</span>
+                        <span class="text">Saiba no seu perfil se já está preparado para ir a exame.</span>
+                    </a>
+                </li>
+                <li class="info" title='O teste "Erradas" apresenta-lhe questões que errou e não voltou a responder.'>
+                    <a class="just-the-tip" href="/teste" target="_self">
+                        <span class="title">Testes</span>
+                        <span class="text">O teste "Erradas" apresenta-lhe questões que errou e não voltou a responder.</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="search-button" title="Clique para pesquisar na plataforma">
+            <i class="fa fa-search"></i>
+            <span class="button-label">Procurar</span>
+        </div>
+        <a class="login-button" draggable="false" href="/entrar" target="_self" title="Conta">
+            <i class="fa fa-sign-in"></i> Entrar
+        </a>
+    </header>
+    <nav class="bc-sidebar">
+        <div class="stroke"></div>
+        <a class="burger-menu-button" draggable="false" href="">
+            <i class="fa fa-bars"></i> MENU
+        </a>
+        <a class="logo-wrapper" draggable="false" href="/" target="_self">
+            <img class="long" src="/assets/images/brand/logo-white.svg" />
+            <img class="short" src="/assets/images/brand/logo-short-white.svg" />
+        </a>
+        <a class="login-button" draggable="false" href="/entrar" target="_self"><i class="fa fa-sign-in"></i></a>
+        <ul class="items-list">
+
+            <li class="zone tests">
+                <a draggable="false" href="/teste" target="_self" title="Testes"><span class="icon-box"><i class="fa fa-pencil"></i></span>Testes de Código</a>
+            </li>
+
+            <li class="zone profile">
+                <a draggable="false" href="/perfil" target="_self" title="Perfil"><span class="icon-box"><i class="fa fa-user"></i></span>Perfil</a>
+            </li>
+
+            <li class="zone study">
+                <a draggable="false" href="/biblioteca" target="_self" title="Biblioteca"><span class="icon-box"><i class="fa fa-book"></i></span>Biblioteca</a>
+            </li>
+            <div class="zone-menu visible">
+                <ul class="expands">
+                    <li class="categories-wrapper"><span class="category">Código da Estrada<i class="fa fa-chevron-down"></i></span>
+                        <ul class="expands">
+                            <li><a class="link codigo-estrada" href="/biblioteca/codigo-estrada" target="_self">Código da Estrada</a></li>
+                            <li class="categories-wrapper"><span class="category">Alterações<i class="fa fa-chevron-down"></i></span>
+                                <ul class="expands">
+                                    <li><a class="link resumo-alteracoes-janeiro-2014" href="/biblioteca/resumo-alteracoes-janeiro-2014" target="_self">Lei 72/2013 — Jan/14</a></li>
+                                    <li><a class="link lei-116-2015" href="/biblioteca/lei-116-2015" target="_self">Lei 116/2015 — Junho/16</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="categories-wrapper"><span class="category">Resumos<i class="fa fa-chevron-down"></i></span>
+                        <ul class="expands">
+                            <li><a class="link resumo-velocidades" href="/biblioteca/resumo-velocidades" target="_self">Velocidades</a></li>
+                            <li><a class="link resumo-cedencia-passagem" href="/biblioteca/resumo-cedencia-passagem" target="_self">Cedência de Passagem</a></li>
+                            <li><a class="link via-publica" href="/biblioteca/via-publica" target="_self">Via Pública</a></li>
+                            <li><a class="link resumo-manobras-proibidas" href="/biblioteca/resumo-manobras-proibidas" target="_self">Manobras</a></li>
+                            <li><a class="link resumo-contraordenacoes" href="/biblioteca/resumo-contraordenacoes" target="_self">Contraordenações</a></li>
+                            <li><a class="link categorias-veiculos" href="/biblioteca/categorias-veiculos" target="_self">Categorias de Veículos</a></li>
+                            <li><a class="link resumo-reacao-travagem-paragem" href="/biblioteca/resumo-reacao-travagem-paragem" target="_self">Reação, Travagem e Paragem</a></li>
+                            <li><a class="link resumo-circulacao-rotundas" href="/biblioteca/resumo-circulacao-rotundas" target="_self">Circulação em Rotundas</a></li>
+                            <li><a class="link resumo-luzes-obrigatorias" href="/biblioteca/resumo-luzes-obrigatorias" target="_self">Luzes</a></li>
+                            <li><a class="link resumo-sinais-sonoros" href="/biblioteca/resumo-sinais-sonoros" target="_self">Sinais Sonoros</a></li>
+                            <li><a class="link resumo-seguranca-ativa-passiva" href="/biblioteca/resumo-seguranca-ativa-passiva" target="_self">Segurança Ativa e Passiva</a></li>
+                            <li><a class="link resumo-classificacao-veiculos" href="/biblioteca/resumo-classificacao-veiculos" target="_self">Classificação de Veículos</a></li>
+                            <li><a class="link resumo-outras-informacoes" href="/biblioteca/resumo-outras-informacoes" target="_self">Outras Informações</a></li>
+                        </ul>
+                    </li>
+                    <li class="categories-wrapper"><span class="category">Sinais de Trânsito<i class="fa fa-chevron-down"></i></span>
+                        <ul class="expands">
+                            <li><a class="link hierarquia-sinais-transito" href="/biblioteca/hierarquia-sinais-transito" target="_self">Hierarquia da Sinalização</a></li>
+                            <li><a class="link sinais-agentes-transito" href="/biblioteca/sinais-agentes-transito" target="_self">Agentes da Autoridade</a></li>
+                            <li><a class="link sinalizacao-temporaria" href="/biblioteca/sinalizacao-temporaria" target="_self">Sinalização Temporária</a></li>
+                            <li><a class="link sinais-mensagem-variavel" href="/biblioteca/sinais-mensagem-variavel" target="_self">Mensagem Variável</a></li>
+                            <li><a class="link sinalizacao-luminosa" href="/biblioteca/sinalizacao-luminosa" target="_self">Sinalização Luminosa</a></li>
+                            <li><a class="link sinais-perigo" href="/biblioteca/sinais-perigo" target="_self">Perigo</a></li>
+                            <li><a class="link sinais-cedencia-passagem" href="/biblioteca/sinais-cedencia-passagem" target="_self">Cedência de Passagem</a></li>
+                            <li><a class="link sinais-proibicao" href="/biblioteca/sinais-proibicao" target="_self">Proibição</a></li>
+                            <li><a class="link sinais-obrigacao" href="/biblioteca/sinais-obrigacao" target="_self">Obrigação</a></li>
+                            <li><a class="link sinais-prescricao-especifica" href="/biblioteca/sinais-prescricao-especifica" target="_self">Prescrição Específica</a></li>
+                            <li><a class="link sinais-informacao" href="/biblioteca/sinais-informacao" target="_self">Informação</a></li>
+                            <li><a class="link sinais-pre-sinalizacao" href="/biblioteca/sinais-pre-sinalizacao" target="_self">Pré-sinalização</a></li>
+                            <li><a class="link sinais-direcao" href="/biblioteca/sinais-direcao" target="_self">Direção</a></li>
+                            <li><a class="link sinais-confirmacao" href="/biblioteca/sinais-confirmacao" target="_self">Confirmação</a></li>
+                            <li><a class="link sinais-localidades" href="/biblioteca/sinais-localidades" target="_self">Localidades</a></li>
+                            <li><a class="link sinais-turistico-cultural" href="/biblioteca/sinais-turistico-cultural" target="_self">Turístico-cultural</a></li>
+                            <li><a class="link sinais-complementares" href="/biblioteca/sinais-complementares" target="_self">Complementares</a></li>
+                            <li><a class="link marcas-rodoviarias" href="/biblioteca/marcas-rodoviarias" target="_self">Marcas Rodoviárias</a></li>
+                            <li><a class="link paineis-adicionais" href="/biblioteca/paineis-adicionais" target="_self">Painéis Adicionais</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="link glossario" href="/biblioteca/glossario" target="_self">Glossário</a></li>
+                    <li><a class="link questoes selected" href="/questoes" target="_self">Questões IMT</a></li>
+                    <li class="categories-wrapper"><span class="category">Outros Documentos<i class="fa fa-chevron-down"></i></span>
+                        <ul class="expands">
+                            <li><a class="link regulamento-sinalizacao-transito" href="https://dre.pt/application/dir/pdf1s/1998/10/227B01/00020119.pdf" target="_blank">Regulamento de Sinalização do Trânsito</a></li>
+                            <li><a class="link portaria-185-2015" href="/biblioteca/portaria-185-2015" target="_self">Portaria n.º 185/2015 — Set/15</a></li>
+                            <li class="categories-wrapper"><span class="category">Fichas Técnicas IMT<i class="fa fa-chevron-down"></i></span>
+                                <ul class="expands">
+                                    <li><a class="link conducao-defensiva" href="http://www.imt-ip.pt/sites/IMTT/Portugues/EnsinoConducao/ManuaisEnsinoConducao/Documents/Fichas/FT_ConducaoDefensiva.pdf" target="_self">Condução Defensiva</a></li>
+                                    <li><a class="link conducao-autoestrada" href="http://www.imt-ip.pt/sites/IMTT/Portugues/EnsinoConducao/ManuaisEnsinoConducao/Documents/Fichas/FT_ConducaoemAuto_Estrada.pdf" target="_self">Condução em Autoestrada</a></li>
+                                    <li><a class="link fadiga-stress" href="http://www.imt-ip.pt/sites/IMTT/Portugues/EnsinoConducao/ManuaisEnsinoConducao/Documents/Fichas/FT_FadigaeStress.pdf" target="_self">Fadiga e Stress</a></li>
+                                    <li><a class="link atuacao-caso-incendio" href="http://www.imt-ip.pt/sites/IMTT/Portugues/EnsinoConducao/ManuaisEnsinoConducao/Documents/Fichas/FT_ActuacaocasoIncendio.pdf" target="_self">Atuação em Caso de Incêndio</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <li class="zone directory">
+                <a draggable="false" href="/escolas" target="_self" title="Escolas"><span class="icon-box"><i class="fa fa-car"></i></span>Escolas</a>
+            </li>
+
+            <li class="zone help">
+                <a draggable="false" href="/testemunhos" target="_self" title="Testemunhos"><span class="icon-box"><i class="fa fa-comments"></i></span>Testemunhos</a>
+            </li>
+
+            <li class="zone help">
+                <a draggable="false" href="/ajuda" target="_self" title="Ajuda"><span class="icon-box"><i class="fa fa-question-circle"></i></span>Ajuda</a>
+            </li>
+            <li class="expand">
+                <a draggable="false" href="" target="_self"><span class="icon-box"><i class="fa fa-angle-double-right"></i></span></a>
+            </li>
+            <li class="reduce">
+                <a draggable="false" href="" target="_self"><span class="icon-box"><i class="fa fa-angle-double-left"></i></span></a>
+            </li>
+            <li class="search-box">
+                <form action="/procurar" class="search-form" id="cse-search-box" method="get">
+                    <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                    <input autosave="bc_search_box" class="field" name="q" placeholder="Procurar..." results="5" type="search" />
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        BC.value('favoriteQuestions', null);
+        BC.value('questionHelp', {
+            "1234": {
+                "explanation": null,
+                "materials": null
+            }
+        });
+    </script>
+    <div class="panel-wrapper question-page">
+        <div class="pacific-pegasus banner wide">
+            <style type="text/css">
+                .bc_banner_1 {
+                    width: 320px;
+                    height: 100px;
+                }
+
+                @media(min-width: 813px) {
+                    .bc_banner_1 {
+                        width: 728px;
+                        height: 90px;
+                    }
+                }
+
+                @media(min-width: 1280px) {
+                    .bc_banner_1 {
+                        width: 970px;
+                        height: 90px;
+                    }
+                }
+
+                @media(min-width: 1510px) {
+                    .bc_banner_1 {
+                        width: 1200px;
+                        height: 90px;
+                    }
+                }
+            </style>
+            <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle bc_banner_1" data-ad-client="ca-pub-5567971961300547" data-ad-format="horizontal" data-ad-slot="9653971892" data-full-width-responsive="false" style="display:block"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <h1 class="header">Questão do Código da Estrada IMT — 1234 </h1>
+        <div class="panel-content" data-ng-controller="QuestionTools">
+            <div class="question-wrapper">
+                <div class="question">
+                    <div class="question-image">
+                        <a data-lightbox="question" href="/assets/images/questions/1234.jpg">
+                            <img alt="Questão IMT: Esta situação pode ser particularmente perigosa à circulação." class="question-image" src="/assets/images/questions/1234.jpg" title="Clique para ampliar a imagem" />
+                        </a>
+                        <div class="magnify"><i class="fa fa-search-plus"></i></div>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="bc-question-tools question-tools expandable" data-question-id="1234">
+                    <div class="tools-buttons">
+                        <button class="comments-button" data-disqus-identifier="questao-1234"><i class="fa fa-comment"></i> Comentários</button>
+                        <a data-ng-href="/questao/1234" target="_blank"><span class="question-id"><span class="id-label">Questão </span>#1234</span></a>
+                        <button class="favorite-button" data-ng-show="favoriteQuestions !== null" ng-cloak="">
+                            <i class="fa fa-star-o" data-ng-if="favoriteState === false"></i><span data-ng-if="favoriteState === false || (favoriteState === null &amp;&amp; previousFavoriteState === false)"> Guardar</span>
+                            <i class="fa fa-star" data-ng-if="favoriteState === true"></i><span data-ng-if="favoriteState === true || (favoriteState === null &amp;&amp; previousFavoriteState === true)"> Remover</span>
+                            <i class="fa fa-circle-o-notch fa-spin" data-ng-show="favoriteState === null"></i>
+                        </button>
+                        <button class="study-button"><i class="fa fa-book"></i> Explicação</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="text-answers">
+                    <div class="question-text">
+                        <span class="icon-wrapper">
+                            <i class="fa fa-question-circle"></i>
+                        </span>
+                        <div class="text">
+
+                            Esta situação pode ser particularmente perigosa à circulação.
+                        </div>
+                    </div>
+                    <ul class="answers">
+                        <li class="answer A"><span class="option">A</span><span class="answer-text">Certo.</span></li>
+                        <li class="answer B"><span class="option">B</span><span class="answer-text">Errado.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="question-info">
+                <p>
+                    A questão <strong>1234</strong> pertence à categoria <a href="/questoes/B">B</a> e ao tema <a href="/questoes/B/circulacao-seguranca-veiculos-missao-urgente-socorro">Circulação, segurança e veículos em missão urgente de socorro</a>,
+                    pode <a href="/teste/B/tematico/20">iniciar um teste neste tema</a>.
+                </p>
+            </div>
+            <script>
+                var bcrypt = function(e) {
+                    var t = String(e).replace(/=+$/, "");
+                    var n = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+                    for (var r = 0, i, s, o = 0, u = ""; s = t.charAt(o++); ~s && (i = r % 4 ? i * 64 + s : s, r++ % 4) ? u += String.fromCharCode(255 & i >> (-2 * r & 6)) : 0) {
+                        s = n.indexOf(s)
+                    }
+                    return u
+                };
+                var bc1234 = function(e) {
+                    var t = 1234,
+                        n = bcrypt(e),
+                        r = n - t;
+                    return r
+                };
+                var lazyLoadImage = function() {
+                    e = bc1234("MTI5OQ==");
+                    return String.fromCharCode(e)
+                };
+                $(document).ready(function() {
+                    var e = lazyLoadImage();
+                    $(".question-wrapper .answers > ." + e).addClass("correct")
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
