@@ -6,21 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Website</title>
-    <link rel="stylesheet" href="static/dist/main.css" />
-    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="/static/dist/main.css" />
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 <body>
-    <img src={{image_link}}>
-    {{question|safe}}
-    <ul>
-        {% for answer in answers %}
-        <div class="answer {{answer[0]}}">{{ answer[1]}}</div>
-        {% endfor %}
-    </ul>
+    <div class="max-w-7xl w-full mx-auto">
+        <img src={{image_link}} class="mx-auto m-5 ">
+        <div class="h-16 bg-blue-200 flex items-center rounded-[30px]">
+            <span class="h-16 w-16 flex items-center justify-center">
+                <div class="w-[50px] h-[50px] rounded-[25px] bg-gray-600">
+                    <img src="/static/icons/question-mark.svg" class="w-full h-full p-2">
+                </div>
+            </span>
+            <span>
+                {{question|safe}}
+            </span>
+        </div>
+        <ul id="answers" class="space-y-2 mt-2">
+            {% for answer in answers %}
+            <div class=" bg-blue-300 flex items-center rounded-[30px]">
+                <span class="h-16 w-16 flex items-center justify-center">
+                    <button id={{answer[0]}} onclick=" validate('{{answer[0]}}')" class="w-[50px] h-[50px] rounded-[25px] bg-gray-600">
+                        {{answer[0]}}
+                    </button>
+                </span>
+                <span class="answer {{answer[0]}}">{{ answer[1]}}</span>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 
 <script>
+    var answered = false
     var id = '{{id}}'
     var bcrypt = function(e) {
         var t = String(e).replace(/=+$/, "");
@@ -45,16 +66,18 @@
         e = bc('{{enc_string}}', id);
         return String.fromCharCode(e);
     };
-    var e = lazyLoadImage();
-    var objects = document.getElementsByClassName("answer");
-    for (var obj of objects) {
-        console.log(obj);
-        if (obj.classList.contains(e)) {
-            obj.style.color = "blue";
+    var correct = lazyLoadImage();
+    var validate = function(answer) {
+        let obj = document.getElementById(answer)
+        if (!answered) {
+            answered = true
+            if (answer == correct) {
+                obj.classList.add("bg-green-800");
+            } else {
+                obj.classList.add("bg-red-800");
+                document.getElementById(correct).classList.add("bg-green-800")
+            }
         }
-    }
-    for (var obj of objects) {
-        console.log(obj);
     }
 </script>
 
