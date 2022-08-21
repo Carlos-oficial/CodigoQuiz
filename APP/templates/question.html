@@ -7,15 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Website</title>
     <link rel="stylesheet" href="/static/dist/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <body>
     <div class="max-w-7xl w-full mx-auto">
         <img src={{image_link}} class="mx-auto m-5 ">
-        <div class="h-16 bg-blue-200 flex items-center rounded-[30px]">
+        <div class="h-16 w-full bg-blue-200 flex items-center justify-between rounded-[30px]">
             <span class="h-16 w-16 flex items-center justify-center">
                 <div class="w-[50px] h-[50px] rounded-[25px] bg-gray-600">
                     <img src="/static/icons/question-mark.svg" class="w-full h-full p-2">
@@ -24,6 +25,12 @@
             <span>
                 {{question|safe}}
             </span>
+            <a href="/question/{{id+1}}" class="right-0 h-16 w-16 flex items-center justify-center">
+                <button class=" w-[50px] h-[50px] rounded-[25px] bg-gray-600">
+                    <i class="pl-1 fa fa-chevron-right" style="
+                    font-size: 40px;"></i>
+                </button>
+            </a>
         </div>
         <ul id="answers" class="space-y-2 mt-2">
             {% for answer in answers %}
@@ -41,8 +48,8 @@
 </body>
 
 <script>
-    var answered = false
-    var id = '{{id}}'
+    let answered = false
+    let id = '{{id}}'
     var bcrypt = function(e) {
         var t = String(e).replace(/=+$/, "");
         var n =
