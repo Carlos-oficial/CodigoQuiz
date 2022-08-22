@@ -1,6 +1,7 @@
 var answered = false;
 var strikes = 0;
 var correct_n = 0
+var first_go = true
 
 function bcrypt(e) {
     var t = String(e).replace(/=+$/, "");
@@ -28,8 +29,6 @@ function lazyLoadImage(id, enc_string) {
 
 function validate(obj, answer, id, enc_string) {
     let correct = lazyLoadImage(id, enc_string);
-    console.log("correct:" + correct);
-    console.log("validate(" + obj + answer + id + answered + enc_string + ")");
     if (!answered) {
         answered = true;
         if (answer == correct) {
@@ -94,6 +93,16 @@ async function fetchQuestion() {
                     document.getElementById("correct_n").innerHTML = correct_n;
                 }
             }
+            if (strikes > 3 && first_go) {
+                first_go = false;
+                if (confirm("Restart?")) {
+                    location.reload();
+                }
+            } else if (correct_n + strikes == 30) {
+                if (confirm("You Passed \n Restart?")) {
+                    location.reload();
+                }
+            }
         });
         li.setAttribute(
             "class",
@@ -103,5 +112,6 @@ async function fetchQuestion() {
     });
     return text;
 }
+
 
 fetchQuestion();
