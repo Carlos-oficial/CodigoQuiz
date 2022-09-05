@@ -12,10 +12,28 @@
 
 <body>
     <main>
-        <div class="flex justify-between p-2">
-            <h1 class="bg-blue-300 rounded-lg mx-auto inline-block p-2">
-                Welcome to My Website
-            </h1>
+        <div class="h-16 bg-blue-400">
+            <div class="flex justify-between p-2">
+                <h1 class="text-blue-200 rounded-lg mx-auto inline-block p-2 font-black text-3xl">
+                    Codigo Quiz
+                </h1>
+            </div>
+        </div>
+        <div class="max-w-7xl w-full mx-auto">
+            <div class="flex justify-center text-2xl font-black text-blue-400 ">
+                <a class="m-2 hover:text-blue-200" href="/quiz">
+                    Quiz
+                </a>
+                <a class="m-2 hover:text-blue-200"> Profile </a>
+            </div>
+            <div class="bg-yellow-300 w-fit p-2 rounded-md">
+                <p class="text-yellow-600 text-2xl font-black border-b-2 border-yellow-600">Prancha dos Líderes</p>
+                <ul>
+                    {%for record in records%}
+                    <li class="my-2"> >{{record.name, record.score}} </li>
+                    {%endfor%}
+                </ul>
+            </div>
         </div>
     </main>
 </body>

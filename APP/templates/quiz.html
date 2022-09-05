@@ -16,6 +16,16 @@
 <body>
     <div class="max-w-7xl w-full mx-auto">
         <img id="question_image" class="mx-auto m-5 w-[35rem] rounded-lg border-gray-400 border-[0.5rem]">
+        <div class="form-popup" id="myForm">
+            <form action="/quiz/record" method="POST" style="display: none" id="MyForm">
+                <h1>Login</h1>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="score">Score:</label><br>
+                <input type="text" id="score" name="score">
+                <button type="submit" onclick="closeForm()" value="Submit">Submit</button>
+            </form>
+        </div>
         <div id="QUESTION">
             <div class="h-16 w-full bg-blue-200 flex items-center justify-between rounded-[30px] ">
                 <span class="h-16 w-16 flex items-center justify-center">
