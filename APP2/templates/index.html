@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="static/dist/main.css" />
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+    <main>
+
+        <div class="h-16 bg-blue-400 ">
+            <div class="flex p-2 items-center">
+                {%if curr_usr_name%}
+                <span class="text-blue-200 ">
+                    Hello mr {{curr_usr_name}}
+                </span>
+                {%endif%}
+                <h1 class="text-blue-200 rounded-lg inline-block p-2 mx-auto font-black text-3xl">
+                    Código Quiz
+                </h1>
+                {%if not curr_usr_name%}
+                <a class="text-blue-200 hover:text-white rounded-lg inline-block p-2 font-black text-xl" href="/auth/login">
+                    login
+                </a>
+                {%else%}
+                <a class="text-blue-200 hover:text-white rounded-lg inline-block p-2 font-black text-xl" href="/auth/logout">
+                    logout
+                </a>
+                {%endif%}
+
+
+            </div>
+        </div>
+        <div class="max-w-7xl w-full mx-auto">
+            <div class="flex justify-center text-2xl font-black text-blue-400 ">
+                <a class="m-2 hover:text-blue-200" href="/quiz">
+                    Quiz
+                </a>
+                {%if curr_usr_name%}
+                <a class="m-2 hover:text-blue-200"> Profile </a>
+                {%endif%}
+            </div>
+            <div class="bg-yellow-300 w-fit p-2 rounded-md mx-auto">
+                <p class="text-yellow-600 text-2xl font-black border-b-2 border-yellow-600">Prancha dos Líderes</p>
+                <ul>
+                    {%for record in records%}
+                    {%if record[2] >= 27%}
+                    <li class="my-2 bg-yellow-200 text-yellow-600  p-2 rounded-md font-bold"> {{record[0]}}: {{ record[2]}}, {{record[1]}}</li>
+                    {%else%}
+                    <li class="my-2 bg-red-400 text-red-600  p-2 rounded-md font-bold"> {{record[0]}}: {{ record[2]}}, {{record[1]}}</li>
+
+                    {%endif%}
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
