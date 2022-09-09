@@ -2,6 +2,9 @@ var answered = false;
 var strikes = 0;
 var correct_n = 0;
 var first_go = true;
+var questions = [];
+var wrong_answers = [];
+var right_answers = [];
 
 function bcrypt(e) {
     var t = String(e).replace(/=+$/, "");
@@ -42,13 +45,14 @@ function validate(obj, answer, id, enc_string) {
     }
 }
 
-async function postRecord(record) {
+async function postRecord(record, wrong_answers, right_answers) {
     console.log("posting" + record);
     fetch("/quiz/record", {
             method: "POST",
             body: JSON.stringify({
-                name: "Cralos",
                 score: record,
+                wrong_answers: wrong_answers,
+                right_answers: right_answers,
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -68,7 +72,11 @@ function deleteChildren(e) {
 async function fetchQuestion() {
     answered = false;
     let clicks = 1;
-    let id = Math.floor(Math.random() * (5012 - 1103) + 1103);
+
+    do var id = Math.floor(Math.random() * (5012 - 1103) + 1103);
+    while (id in questions);
+    questions.push(id);
+
     let response = await fetch("question/" + id);
     let text = await response.json();
     console.log(text);
@@ -105,10 +113,12 @@ async function fetchQuestion() {
                 if (!validate(li, item[0], id, text.enc_string)) {
                     clicks = 0;
                     strikes += 1;
+                    wrong_answers.push(id);
                     document.getElementById("strikes").innerHTML = strikes;
                 } else {
                     clicks = 0;
                     correct_n += 1;
+                    right_answers.push(id);
                     document.getElementById("correct_n").innerHTML = correct_n;
                 }
             }

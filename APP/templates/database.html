@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block title %}Main{% endblock %}
+{% block content %}
+<table class="mx-auto mt-10">
+    {% for i,x in  enumerate(db.execute(command).fetchall())%}
+    <tr class="border-2"> {% for attr in x %}
+        {% if i%2%}
+        <td class="bg-blue-200 p-1 ">
+            {{attr}}
+        </td>
+        {% else %}
+        <td class="bg-blue-300 p-1 ">
+            {{attr}}
+        </td>
+        {% endif %}
+        {% endfor%}
+
+        {% endfor%}
+</table>
+
+{% endblock %}

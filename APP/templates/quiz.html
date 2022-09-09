@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>My Website</title>
-    <link rel="stylesheet" href="/static/dist/main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-</head>
-
+{% extends 'base.html' %}
+{% block title %}Quiz{% endblock %}
+{% block content %}
 
 <body>
     <div class="max-w-7xl w-full mx-auto">
         <img id="question_image" class="mx-auto m-5 w-[35rem] rounded-lg border-gray-400 border-[0.5rem]">
-        <div class="form-popup" id="myForm">
-            <form action="/quiz/record" method="POST" style="display: none" id="MyForm">
-                <h1>Login</h1>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name"><br>
-                <label for="score">Score:</label><br>
-                <input type="text" id="score" name="score">
-                <button type="submit" onclick="closeForm()" value="Submit">Submit</button>
-            </form>
-        </div>
         <div id="QUESTION">
             <div class="h-16 w-full bg-blue-200 flex items-center justify-between rounded-[30px] ">
                 <span class="h-16 w-16 flex items-center justify-center">
@@ -51,5 +30,4 @@
     </div>
 </body>
 <script type="text/javascript" src="/static/scripts/quiz.js"></script>
-
-</html>
+{%endblock%}

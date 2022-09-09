@@ -1,5 +1,5 @@
-from APP2.db import get_db, get_user
-from APP2.lib import parse_html as p
+from APP.db.db import get_db, get_user
+from APP.lib import parse_html as p
 import json
 
 from flask import (
@@ -13,13 +13,12 @@ from flask import (
     url_for,
 )
 
-
 def init_routes(app, render_template):
     @app.route("/")
     def index():
         db = get_db()
         records = db.execute("SELECT * FROM record").fetchall()
-        records.sort(reverse=True, key=lambda x: x[0])
+        records.sort(reverse=True, key=lambda x: x[3])
 
         leaderboard = [
             (get_user(record[1], db)["username"], record[2], record[3])
@@ -28,7 +27,7 @@ def init_routes(app, render_template):
         try:
             current_uid = session["user_id"]
             usr_name = get_user(session["user_id"], db)["username"]
-        except KeyError:
+        except :
             usr_name = None
 
         return render_template(
@@ -81,3 +80,10 @@ def init_routes(app, render_template):
             enc_string=p.get_enc_string(p.get_script(soup), id),
             id=id,
         )
+    @app.route("/db/<string:table>", methods=["GET"])
+    def render_db(table):
+        db = get_db()
+        command = 'SELECT * FROM '+ table
+        return render_template('database.html',db=db,table=table,command=command,enumerate=enumerate)
+    
+    

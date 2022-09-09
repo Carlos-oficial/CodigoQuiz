@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-blue-300 w-72 mx-auto mt-16 p-4 rounded-lg">
+    <div class="text-3xl font-black text-center">
+        {%block title%}{% endblock %}</div>
+    <form method="post" class="space-y-2 font-bold flex flex-col">
+        {% block form %}
+        {% endblock %}
+        <button type="submit" class="bg-blue-200 p-2 text-xl font-black mx-auto rounded-lg">{% block button %} {% endblock %}</button>
+    </form>
+</div>
+{% endblock %}

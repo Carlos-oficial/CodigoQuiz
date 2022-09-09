@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %} - CodigoQuiz</title>
+    <link rel="stylesheet" href="/static/dist/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    {% block head %}
+    {% endblock %}
+</head>
+
+
+<section class="content">
+    {% for message in get_flashed_messages() %}
+    <div class="flash text-red-600">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</section>
+
+</html>
