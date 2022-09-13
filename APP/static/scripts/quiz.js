@@ -45,6 +45,7 @@ function validate(obj, answer, id, enc_string) {
     }
 }
 
+
 async function postRecord(record, wrong_answers, right_answers) {
     console.log("posting" + record);
     fetch("/api/record", {
@@ -127,7 +128,7 @@ async function fetchQuestion() {
                 first_go = false;
                 if (confirm("Restart?")) {
                     console.log("u got", correct_n, "correct");
-                    rec = await postRecord(correct_n);
+                    rec = await postRecord(correct_n, wrong_answers, right_answers);
                     console.log(rec);
                     window.location.href = "/";
                 }

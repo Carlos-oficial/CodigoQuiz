@@ -3,6 +3,7 @@
 {% block title %}Main{% endblock %}
 {% block content %}
 <table class="mx-auto mt-10">
+    {% if len(db.execute(command).fetchall())%}
     {% for i,x in  enumerate(db.execute(command).fetchall())%}
     <tr class="border-2"> {% for attr in x %}
         {% if i%2%}
@@ -17,6 +18,10 @@
         {% endfor%}
 
         {% endfor%}
+        {% else %}
+        {{table}} is empty my dood
+        {% endif %}
+
 </table>
 
 {% endblock %}

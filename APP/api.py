@@ -44,5 +44,12 @@ def post_record():
             "INSERT INTO record (author_id,score) VALUES(?,?)",
             (session["user_id"], req["score"]),
         )
+        record_id = db.execute('SELECT * FROM record ORDER BY id DESC LIMIT 1').fetchone()[0]
+        # db.execute('INSERT INTO answer_log VALUES(?,?,?)',(req['wrong_answers'][0],"Wrong",session["user_id"]))
+
+        for answer in req['wrong_answers']:
+            db.execute('INSERT INTO answer_log VALUES(?,?,?,?)',(answer,"Wrong",session["user_id"],record_id))
+        for answer in req['right_answers']:
+            db.execute('INSERT INTO answer_log VALUES(?,?,?,?)',(answer,"Right",session["user_id"],record_id))
     db.commit()
     return req["name"]

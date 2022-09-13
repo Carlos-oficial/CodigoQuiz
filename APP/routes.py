@@ -13,6 +13,7 @@ from flask import (
     url_for,
 )
 
+
 def init_routes(app, render_template):
     @app.route("/")
     def index():
@@ -27,7 +28,7 @@ def init_routes(app, render_template):
         try:
             current_uid = session["user_id"]
             usr_name = get_user(session["user_id"], db)["username"]
-        except :
+        except:
             usr_name = None
 
         return render_template(
@@ -54,7 +55,23 @@ def init_routes(app, render_template):
     @app.route("/db/<string:table>", methods=["GET"])
     def render_db(table):
         db = get_db()
-        command = 'SELECT * FROM '+ table
-        return render_template('database.html',db=db,table=table,command=command,enumerate=enumerate)
-    
-    
+        command = "SELECT * FROM " + table
+        if table == 'schema':
+            with open("APP/db/schema.sql",'r') as f:
+                return f.read()
+
+        import sqlite3
+
+        try:
+            db.execute(command)
+        except sqlite3.OperationalError:
+            return f"""no table named {table}"""
+        else:
+            return render_template(
+                "database.html",
+                db=db,
+                table=table,
+                command=command,
+                enumerate=enumerate,
+                len=len
+            )
