@@ -47,7 +47,7 @@ function validate(obj, answer, id, enc_string) {
 
 async function postRecord(record, wrong_answers, right_answers) {
     console.log("posting" + record);
-    fetch("/quiz/record", {
+    fetch("/api/record", {
             method: "POST",
             body: JSON.stringify({
                 score: record,
@@ -77,7 +77,7 @@ async function fetchQuestion() {
     while (id in questions);
     questions.push(id);
 
-    let response = await fetch("question/" + id);
+    let response = await fetch("api/questao/" + id);
     let text = await response.json();
     console.log(text);
     document.getElementById("question_text").innerHTML = text.question;

@@ -36,6 +36,10 @@ def create_app(test_config=None):
 
     app.register_blueprint(auth.bp)
 
+    from . import api
+
+    app.register_blueprint(api.api)
+
     from . import routes
 
     with app.app_context():

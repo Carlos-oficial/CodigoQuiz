@@ -38,36 +38,6 @@ def init_routes(app, render_template):
     def quiz():
         return render_template("quiz.html")
 
-    @app.route("/question/<int:id>", methods=["GET"])
-    def question(id: int):
-        soup = p.get_soup(id)
-        obj = {
-            "question": str(p.get_question(soup)),
-            "answers": p.get_answers(soup),
-            "enc_string": p.get_enc_string(p.get_script(soup), id),
-            "id": id,
-        }
-        return obj
-
-    @app.route("/quiz/record", methods=["POST"])
-    def post_record():
-        db = get_db()
-        try:
-            req = request.get_json()
-        except:
-            req = request.from_values()
-        try:
-            curr_usr = session["user_id"]
-        except KeyError:
-            flash("not logged in bruh")
-        else:
-            db.execute(
-                "INSERT INTO record (author_id,score) VALUES(?,?)",
-                (session["user_id"], req["score"]),
-            )
-        db.commit()
-        return req["name"]
-
     @app.route("/questao/<int:id>", methods=["GET"])
     def questao(id: int):
         soup = p.get_soup(id)
@@ -80,6 +50,7 @@ def init_routes(app, render_template):
             enc_string=p.get_enc_string(p.get_script(soup), id),
             id=id,
         )
+
     @app.route("/db/<string:table>", methods=["GET"])
     def render_db(table):
         db = get_db()
