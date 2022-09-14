@@ -15,7 +15,7 @@
 
 <body>
     <div class="max-w-7xl w-full mx-auto">
-        <img src={{image_link}} class="mx-auto m-5 ">
+        <img id="question_image" class="mx-auto m-5 w-[35rem] rounded-lg border-gray-400 border-[0.5rem]" src={{image_link}}>
         <div class="h-16 w-full bg-blue-200 flex items-center justify-between rounded-[30px]">
             <span class="h-16 w-16 flex items-center justify-center">
                 <div class="w-[50px] h-[50px] rounded-[25px] bg-gray-600">
@@ -25,7 +25,7 @@
             <span>
                 {{question|safe}}
             </span>
-            <a href="/question/{{id+1}}" class="right-0 h-16 w-16 flex items-center justify-center">
+            <a href="/questao/{{id+1}}" class="right-0 h-16 w-16 flex items-center justify-center">
                 <button class=" w-[50px] h-[50px] rounded-[25px] bg-gray-600">
                     <i class="pl-1 fa fa-chevron-right" style="
                     font-size: 40px;"></i>
@@ -34,14 +34,13 @@
         </div>
         <ul id="answers" class="space-y-2 mt-2">
             {% for answer in answers %}
-            <div class=" bg-blue-300 flex items-center rounded-[30px]">
+
+            <li id={{answer[0]}} class="h-16 w-full bg-blue-200 flex items-center rounded-[30px] " onclick=" validate('{{answer[0]}}')">
                 <span class="h-16 w-16 flex items-center justify-center">
-                    <button id={{answer[0]}} onclick=" validate('{{answer[0]}}')" class="w-[50px] h-[50px] rounded-[25px] bg-gray-600">
+                    <button class="w-[50px] h-[50px] rounded-[25px] bg-gray-600">
                         {{answer[0]}}
                     </button>
-                </span>
-                <span class="answer {{answer[0]}}">{{ answer[1]}}</span>
-            </div>
+                </span>{{ answer[1]}}</li>
             {% endfor %}
         </ul>
     </div>

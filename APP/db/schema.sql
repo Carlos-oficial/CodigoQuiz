@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS answer_log;
-
 CREATE TABLE IF NOT EXISTS user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
@@ -12,7 +10,7 @@ CREATE TABLE IF NOT EXISTS record (
   score INTEGER NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
-CREATE TABLE answer_log (
+CREATE TABLE IF NOT EXISTS answer_log (
   question_id INTEGER NOT NULL,
   status TEXT CHECK(status IN ('Wrong', 'Right', 'Unanswered')) NOT NULL DEFAULT 'Unanswered',
   author_id INTEGER NOT NULL,

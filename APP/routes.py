@@ -39,6 +39,15 @@ def init_routes(app, render_template):
     def quiz():
         return render_template("quiz.html")
 
+    @app.route("/profile")
+    def profile():
+        db = get_db()
+        records = db.execute(
+            "SELECT * FROM record WHERE author_id =" + str(g.user["id"])
+        ).fetchall()
+        records.sort(reverse=True, key=lambda x: x[3])
+        return render_template("profile.html", records=records, str=str)
+
     @app.route("/questao/<int:id>", methods=["GET"])
     def questao(id: int):
         soup = p.get_soup(id)
@@ -52,12 +61,21 @@ def init_routes(app, render_template):
             id=id,
         )
 
+    @app.route("/record/<int:r_id>", methods=["GET"])
+    def record_by_id(r_id):
+        db = get_db()
+        record = db.execute(f"SELECT * FROM record WHERE id ={r_id}").fetchone()
+        if g.user and g.user["id"] == record[1]:
+            return render_template('database.html',command=f"SELECT * FROM answer_log WHERE record_id ={r_id}",db=db,len=len,enumerate=enumerate)
+        else:
+            return "You must be the author of this record to access it"
+
     @app.route("/db/<string:table>", methods=["GET"])
     def render_db(table):
         db = get_db()
         command = "SELECT * FROM " + table
-        if table == 'schema':
-            with open("APP/db/schema.sql",'r') as f:
+        if table == "schema":
+            with open("APP/db/schema.sql", "r") as f:
                 return f.read()
 
         import sqlite3
@@ -73,5 +91,5 @@ def init_routes(app, render_template):
                 table=table,
                 command=command,
                 enumerate=enumerate,
-                len=len
+                len=len,
             )
