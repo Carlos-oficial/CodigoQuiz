@@ -1,6 +1,6 @@
-var answered = false;
 var strikes = 0;
 var correct_n = 0;
+var answered_n = 0;
 var first_go = true;
 var questions = [];
 var wrong_answers = [];
@@ -45,7 +45,6 @@ function validate(obj, answer, id, enc_string) {
     }
 }
 
-
 async function postRecord(record, wrong_answers, right_answers) {
     console.log("posting" + record);
     fetch("/api/record", {
@@ -74,8 +73,13 @@ async function fetchQuestion() {
     answered = false;
     let clicks = 1;
 
-    do var id = Math.floor(Math.random() * (5012 - 1103) + 1103);
-    while (id in questions);
+    if (injected && answered_n < injected.length) {
+        id = injected[answered_n];
+    } else {
+        do var id = Math.floor(Math.random() * (5012 - 1103) + 1103);
+        while (id in questions);
+    }
+    console.log(id)
     questions.push(id);
 
     let response = await fetch("api/questao/" + id);
@@ -130,7 +134,7 @@ async function fetchQuestion() {
                     console.log("u got", correct_n, "correct");
                     rec = await postRecord(correct_n, wrong_answers, right_answers);
                     console.log(rec);
-                    window.location.href = "/";
+                    // window.location.href = "/";
                 }
             } else if (correct_n + strikes == 30) {
                 if (confirm("You Passed \n Restart?")) {
@@ -144,7 +148,11 @@ async function fetchQuestion() {
         );
         li.innerHTML += item[1];
     });
+    answered_n++;
+
     return text;
 }
+
+console.log(injected);
 
 fetchQuestion();

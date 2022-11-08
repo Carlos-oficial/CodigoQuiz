@@ -52,4 +52,4 @@ def post_record():
         for answer in req['right_answers']:
             db.execute('INSERT INTO answer_log VALUES(?,?,?,?)',(answer,"Right",session["user_id"],record_id))
     db.commit()
-    return req["name"]
+    return "DONE YAY"

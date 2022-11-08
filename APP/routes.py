@@ -1,5 +1,6 @@
 from APP.db.db import get_db, get_user
 from APP.lib import parse_html as p
+import APP.user as u
 import json
 
 from flask import (
@@ -14,7 +15,7 @@ from flask import (
 )
 
 
-def init_routes(app, render_template):
+def init_routes(app):
     @app.route("/")
     def index():
         db = get_db()
@@ -37,16 +38,30 @@ def init_routes(app, render_template):
 
     @app.route("/quiz")
     def quiz():
-        return render_template("quiz.html")
-
+        wrong_answers = []
+        if g.user:
+            db = get_db()
+            u_id = g.user["id"]
+            wrong_answers = db.execute(f"SELECT question_id FROM answer_log WHERE status = 'Wrong' AND author_id = {u_id}").fetchall()
+        return render_template("quiz.html",data=[x[0] for x in wrong_answers])
     @app.route("/profile")
     def profile():
         db = get_db()
         records = db.execute(
             "SELECT * FROM record WHERE author_id =" + str(g.user["id"])
         ).fetchall()
+        for record in records:
+            db.execute(f"SELECT * FROM answer_log WHERE record_id ={record[0]}")
+
         records.sort(reverse=True, key=lambda x: x[3])
-        return render_template("profile.html", records=records, str=str)
+        return render_template(
+            "profile.html", records=records, logs=u.get_all_logs(g.user["id"]), str=str
+        )
+
+    @app.route("/profile/edit")
+    def edit_profile():
+        return render_template("edit_profile.html")
+
 
     @app.route("/questao/<int:id>", methods=["GET"])
     def questao(id: int):
@@ -66,7 +81,13 @@ def init_routes(app, render_template):
         db = get_db()
         record = db.execute(f"SELECT * FROM record WHERE id ={r_id}").fetchone()
         if g.user and g.user["id"] == record[1]:
-            return render_template('database.html',command=f"SELECT * FROM answer_log WHERE record_id ={r_id}",db=db,len=len,enumerate=enumerate)
+            return render_template(
+                "database.html",
+                command=f"SELECT * FROM answer_log WHERE record_id ={r_id}",
+                db=db,
+                len=len,
+                enumerate=enumerate,
+            )
         else:
             return "You must be the author of this record to access it"
 

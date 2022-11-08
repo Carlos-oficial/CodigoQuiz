@@ -43,6 +43,10 @@ def create_app(test_config=None):
     from . import routes
 
     with app.app_context():
-        routes.init_routes(app, render_template)
+        routes.init_routes(app)
 
     return app
+
+
+if __name__ == "__main__":
+    create_app()
