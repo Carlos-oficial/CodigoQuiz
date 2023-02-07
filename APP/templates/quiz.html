@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Quiz{% endblock %}
 {% block content %}
-
+<script>
+    var injected = JSON.parse("{{ data | tojson }}")
+    </script>
 <body>
     <div class="max-w-7xl w-full mx-auto">
         <img id="question_image" class="mx-auto m-5 w-[35rem] rounded-lg border-gray-400 border-[0.5rem]">
